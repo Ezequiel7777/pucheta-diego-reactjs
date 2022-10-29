@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/ticket.css'
 import Item from './Item'
 
 function Ticket({ticket}) {
