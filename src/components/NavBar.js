@@ -1,39 +1,37 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Link } from "react-router-dom";
-const Nav = () => {
+const Nav = ({children}) => {
+
   return (
     <nav className="bg-emerald-500 border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
         <Link to="/">
           <div className="flex items-center">
-            <img
-              src={`assets/logo-nav.png`}
-              className="h-6 sm:h-9"
-              alt="nutrinfo"
-            ></img>
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              NutrInfo
+              Nutrite
             </span>
           </div>
         </Link>
         <div className="flex items-center md:order-2">
-          <Link to = "/planes-alimentarios">
+          <Link to = "/planes-alimentarios/vegetariano">
         <div className="text-black dark:text-white font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
-            Planes Alimentarios
+            Plan Alimentario Vegetariano
           </div>
           </Link>
-          <Link to = "/">
+          <Link to = "/planes-alimentarios/vegano">
           <div className="text-black dark:text-white font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
-            Planes Personalizados
+          Plan Alimentario Vegano
           </div>
           </Link>
+          <Link to = "/planes-alimentarios/mediterraneo">
           <div className="text-black dark:text-white font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
-            Iniciar Sesión
+          Plan Alimentario Mediterraneo
           </div>
-          <div className="text-white bg-red-700 hover:bg-red-800  focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-            Registrate
-          </div>
+          </Link>
+          <Link to="/cart">
+            { children }
+          </Link>
           <button
             data-collapse-toggle="mega-menu"
             type="button"
