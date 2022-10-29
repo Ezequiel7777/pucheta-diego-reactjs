@@ -32,9 +32,9 @@ const Cart = () => {
 
   const addToFireStore = () => {
     const db = getFirestore()
-    const orderCollection = collection(db, "T4sUz6jr3Ckj2pWkAwkY")
-    addDoc(orderCollection).then(() => {
-      setOrderId(products)
+    const orderCollection = collection(db, "order")
+    addDoc(orderCollection).then(({id}) => {
+      setOrderId(id)
     })
   }
 
