@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage"
 import { addDoc, collection, getFirestore} from "firebase/firestore"
 
-export const CartTable = ({title, price}) => {
+export const CartTable = ({title, price, quantity}) => {
 
    return ( 
     <div className="overflow-x-auto">
@@ -19,6 +19,7 @@ export const CartTable = ({title, price}) => {
             <tr>
               <td>{title}</td>
               <td>{price}</td>
+              <td>{quantity}</td>
             </tr>
           </tbody>
         </table>
