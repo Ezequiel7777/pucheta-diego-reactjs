@@ -14,19 +14,33 @@ const ItemDetail = () => {
   const [product, setProducts] = useState({});
   const {addToCart} = useCart()
 
+  const [quantity, setQnt] = useState(1)
+console.log(product.stock)
   useEffect(() => {
     getProduct();
   }, []);
 
+  const addQt = () => {
+    if(quantity < product.stock){
+      setQnt(quantity+1)
+    }
+  }
+
+  const resQt = () => {
+    if(quantity <= 1){
+      return
+    }
+    setQnt(quantity-1)
+  }
+
   const addHandler = () => {
-    addToCart({title: product.title, price: product.price, category: product.categoryId})
+    addToCart({title: product.title, price: product.price, category: product.categoryId, quantity: quantity})
   }
   const getProduct = () => {
     const db = getFirestore()
     const productsCollection = collection(db, 'items')
     const docRef = doc( productsCollection, id)
     getDoc( docRef ).then( res => {
-   
         setProducts(res.data())
     })
   }
@@ -61,6 +75,15 @@ const ItemDetail = () => {
             ></path>
           </svg>
         </div>
+<button onClick={resQt}>
+  -
+</button>
+<span>
+    {quantity}
+</span>
+<button onClick={addQt}>
+  +
+</button>
         <button onClick={addHandler}>Agregar al carrito</button>
       </div>
     </div>

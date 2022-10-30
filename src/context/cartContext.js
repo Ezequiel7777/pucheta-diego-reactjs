@@ -25,7 +25,6 @@ const CartContextProvider = ( {children} ) => {
   const clearCart = () => {
     setProducts([])
   }
-
  
   const context = {
     products: products,
