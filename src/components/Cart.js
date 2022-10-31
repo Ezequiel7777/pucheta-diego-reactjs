@@ -1,7 +1,6 @@
 import React from "react";
 import { useCart } from "../context/cartContext";
 import { Link } from "react-router-dom";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 export const CartTable = ({title, price, quantity }) => {
   return (
@@ -28,13 +27,6 @@ export const CartTable = ({title, price, quantity }) => {
 
 const Cart = () => {
   const { products, clearCart, removeToCart } = useCart();
-
-  const addToFireStore = () => {
-    const db = getFirestore();
-    const orderCollection = collection(db, "order");
-    addDoc(orderCollection, ...products);
-    clearCart();
-  };
 
   if (products.length > 0) {
     return (
@@ -77,7 +69,7 @@ const Cart = () => {
                   </tr>
                   <Link to="/cart/purchase-form">
                     <div className="flex">
-                      <button className="btn btn-accent" onClick={addToFireStore}>
+                      <button className="btn btn-accent">
                         Continuar
                       </button>
                     </div>
