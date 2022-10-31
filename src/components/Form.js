@@ -4,13 +4,13 @@ import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 const Form = () => {
-    const { products, clearCart} = useCart();
+    const {products} = useCart();
 
     const addToFireStore = () => {
       const db = getFirestore();
       const orderCollection = collection(db, "order");
       addDoc(orderCollection, ...products);
-      clearCart();
+
     };
 
   const getUser = (event) => {

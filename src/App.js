@@ -7,7 +7,6 @@ import Cart  from "./components/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CartContextProvider } from './context/cartContext';
 import "./App.css";
-import Checkout from "./components/Checkout";
 import Form from "./components/Form";
 import Ticket from "./components/Ticket";
 
@@ -24,8 +23,7 @@ function App() {
           <Route path={"/planes-alimentarios/:category"} element={<Categories/>} />
           <Route path='/cart' element={<Cart/>} />
           <Route path='/cart/purchase-form' element={<Form/>} />
-          <Route path='/purchase-form/ticket' element={<Ticket/>} />
-          <Route path='/checkout' element={<Checkout/>} />
+          <Route path='/cart/purchase-form/checkout-order' element={<Ticket/>} />
           <Route path={"/planes-alimentarios/:category/:id"} element={<ItemDetail />} />
         </Routes>
       </BrowserRouter>

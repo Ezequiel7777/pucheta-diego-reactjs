@@ -23,7 +23,7 @@ const CartContextProvider = ( {children} ) => {
 
   const addToCart = ( product ) => {
     setProducts( products => [...products, product] )
-    setOrder(orders => [...orders, product])
+    setOrder([product])
   }
   const clearCart = () => {
     setProducts([])

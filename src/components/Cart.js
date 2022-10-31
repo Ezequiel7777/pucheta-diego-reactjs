@@ -27,7 +27,6 @@ export const CartTable = ({title, price, quantity }) => {
 
 const Cart = () => {
   const { products, clearCart, removeToCart } = useCart();
-
   if (products.length > 0) {
     return (
       <div>
