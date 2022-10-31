@@ -26,10 +26,16 @@ const CartContextProvider = ( {children} ) => {
     setProducts([])
   }
  
+  const removeToCart = (item) => { 
+      const productsCartRestantes = products.filter(it => it.title !== item.title)  
+      setProducts(productsCartRestantes)
+  }
+
   const context = {
     products: products,
     addToCart: addToCart,
     clearCart: clearCart,
+    removeToCart: removeToCart,
     count: products.length
   }
   
