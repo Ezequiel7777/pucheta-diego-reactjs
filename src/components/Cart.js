@@ -3,7 +3,7 @@ import { useCart } from "../context/cartContext";
 import { Link } from "react-router-dom";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 
-export const CartTable = ({ id, title, price, quantity }) => {
+export const CartTable = ({title, price, quantity }) => {
   return (
     <div className="overflow-x-auto">
       <table className="table table-zebra w-full">
@@ -28,7 +28,6 @@ export const CartTable = ({ id, title, price, quantity }) => {
 
 const Cart = () => {
   const { products, clearCart, removeToCart } = useCart();
-  console.log(useCart());
 
   const addToFireStore = () => {
     const db = getFirestore();
@@ -37,11 +36,6 @@ const Cart = () => {
     clearCart();
   };
 
-  <Link to="/checkout">
-    <button className="btn btn-accent" onClick={addToFireStore}>
-      Continuar
-    </button>
-  </Link>;
   if (products.length > 0) {
     return (
       <div>
@@ -81,8 +75,12 @@ const Cart = () => {
                       </div>
                     </td>
                   </tr>
-                  <Link to="purchase-form">
-                    <button className="btn btn-accent">Continuar</button>
+                  <Link to="/cart/purchase-form">
+                    <div className="flex">
+                      <button className="btn btn-accent" onClick={addToFireStore}>
+                        Continuar
+                      </button>
+                    </div>
                   </Link>
                 </tbody>
               );
