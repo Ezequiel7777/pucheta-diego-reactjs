@@ -44,18 +44,20 @@ const Cart = () => {
                       </div>
                     </td>
                   </tr>
-                  <Link to="/cart/purchase-form">
+                  
+                </tbody>
+              );
+            })}
+            
+          </table>
+        </div>
+        <Link to="/cart/purchase-form">
                     <div className="flex">
                       <button className="btn btn-accent">
                         Continuar
                       </button>
                     </div>
                   </Link>
-                </tbody>
-              );
-            })}
-          </table>
-        </div>
       </div>
     );
   } else {
