@@ -2,29 +2,6 @@ import React from "react";
 import { useCart } from "../context/cartContext";
 import { Link } from "react-router-dom";
 
-export const CartTable = ({title, price, quantity }) => {
-  return (
-    <div className="overflow-x-auto">
-      <table className="table table-zebra w-full">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{title}</td>
-            <td>{price}</td>
-            <td>{quantity}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
-};
-
 const Cart = () => {
   const { products, clearCart, removeToCart } = useCart();
   if (products.length > 0) {
@@ -44,6 +21,7 @@ const Cart = () => {
                 <th>Precio por unidad</th>
                 <th>Cantidad</th>
                 <th>Precio total</th>
+                <th>Acción</th>
               </tr>
             </thead>
             {products.map((product, i) => {

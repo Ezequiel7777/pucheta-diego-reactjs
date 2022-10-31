@@ -1,32 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCart } from "../context/cartContext";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 const Form = () => {
-    const {products} = useCart();
-
-    const addToFireStore = () => {
-      const db = getFirestore();
-      const orderCollection = collection(db, "order");
-      addDoc(orderCollection, ...products);
-
-    };
-
-  const getUser = (event) => {
-    console.log(event.target.value);
-    console.log(event.target.name);
+  const { products } = useCart();
+  const addToFireStore = () => {
+    const db = getFirestore();
+    const orderCollection = collection(db, "order");
+    addDoc(orderCollection, ...products);
   };
 
   const handleChange = (event) => {
-    console.log("handleChange value", event.target.value);
-    console.log("handleChange name", event.target.name);
+    const mail = document.getElementById("mail").value;
 
-    var mail = document.getElementById("mail").value;
+    const name = document.getElementById("name").value;
 
-    var name = document.getElementById("name").value;
-
-    var apellido = document.getElementById("apellido").value;
+    const apellido = document.getElementById("apellido").value;
+    
 
     if (mail == "") {
       event.preventDefault();
@@ -38,9 +29,10 @@ const Form = () => {
       event.preventDefault();
       alert("Ingrese su apellido.");
     } else if (name !== "" && mail !== "" && apellido) {
-        addToFireStore()
+      addToFireStore();
     }
   };
+  
 
   return (
     <>
@@ -51,7 +43,6 @@ const Form = () => {
               Name
             </label>
             <input
-              onChange={getUser}
               name="name"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="name"
@@ -65,7 +56,6 @@ const Form = () => {
               Apellido
             </label>
             <input
-              onChange={getUser}
               name="apellido"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="apellido"
@@ -83,7 +73,6 @@ const Form = () => {
             <input
               id="mail"
               type="email"
-              onChange={getUser}
               name="email"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Email"
@@ -91,14 +80,14 @@ const Form = () => {
           </div>
         </form>
         <Link to="checkout-order">
-        <button
-          type="submit"
-          name="submit"
-          onClick={handleChange}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          Finalizar Compra
-        </button>
+          <button
+            type="submit"
+            name="submit"
+            onClick={handleChange}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Finalizar Compra
+          </button>
         </Link>
       </div>
     </>
