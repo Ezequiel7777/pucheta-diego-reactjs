@@ -16,7 +16,7 @@ export const Card = ({ id, title, description, price, image, categoryId }) => {
           <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <img
               className="rounded-t-lg"
-              src="/docs/images/blog/image-1.jpg"
+              src={image}
               alt=""
             />
             <div className="p-5">
@@ -69,7 +69,7 @@ const getItems = () => {
     })
 }
   return (
-    <div className="categories">
+    <div className="categories flex justify-center justify-evenly mt-40">
         <div className="categories__list">
           {products.map((product) => {
              return <Card  key={product.id} {...product}/>;

@@ -65,10 +65,9 @@ const ListContainer = () => {
   };
 
   return (
-    <div>
+    <div className="flex justify-center justify-evenly mt-40">
       {
-        /*loading ? <h1> Cargando... </h1>
-        :*/
+  
         items.map( product => <Card key={product.id} {...product} />
         )
       }

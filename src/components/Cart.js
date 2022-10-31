@@ -7,10 +7,10 @@ const Cart = () => {
   if (products.length > 0) {
     return (
       <div>
-        <h1 className="text-center mt-20 mb-20 text-xl font-extrabold">
-          Carrito de compreas
+        <h1 className="text-center mt-20 mb-10 text-xl font-extrabold">
+          Carrito de compras
         </h1>
-        <button className="btn btn-accent" onClick={clearCart}>
+        <button className="btn btn-accent mb-10" onClick={clearCart}>
           Limpiar carrito
         </button>
         <div className="overflow-x-auto">
@@ -52,7 +52,7 @@ const Cart = () => {
           </table>
         </div>
         <Link to="/cart/purchase-form">
-                    <div className="flex">
+                    <div className="flex mt-10">
                       <button className="btn btn-accent">
                         Continuar
                       </button>
@@ -70,7 +70,7 @@ const Cart = () => {
           ¿Desea agregar productos?
         </h3>
         <Link to="/">
-          <div className="flex">
+          <div className="flex justify-center mt-10">
             <button className="btn btn-accent">Navegar por el catálogo</button>
           </div>
         </Link>

@@ -8,7 +8,6 @@ const CartContext = createContext({
   addToCart: () => {},
   clearCart: () => {},
   removeToCart: () => {},
-  clearOrder: () => {},
   count: 0,
 })
 
@@ -19,18 +18,12 @@ const useCart = () => {
 const CartContextProvider = ( {children} ) => {
 
   const [products, setProducts] = useLocalStorage('products', [])
-  const [orders, setOrder] = useLocalStorage('orders', [])
 
   const addToCart = ( product ) => {
     setProducts( products => [...products, product] )
-    setOrder([product])
   }
   const clearCart = () => {
     setProducts([])
-  }
-
-  const clearOrder = () => {
-    setOrder([])
   }
   
   const removeToCart = (item) => { 
@@ -40,11 +33,9 @@ const CartContextProvider = ( {children} ) => {
 
   const context = {
     products: products,
-    orders:orders,
     addToCart: addToCart,
     clearCart: clearCart,
     removeToCart: removeToCart,
-    clearOrder: clearOrder,
     count: products.length
   }
   

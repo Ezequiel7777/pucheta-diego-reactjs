@@ -19,11 +19,6 @@ const Nav = ({children}) => {
             Plan Alimentario Vegetariano
           </div>
           </Link>
-          <Link to = "/planes-alimentarios/vegano">
-          <div className="text-black dark:text-white font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
-          Plan Alimentario Vegano
-          </div>
-          </Link>
           <Link to = "/planes-alimentarios/mediterraneo">
           <div className="text-black dark:text-white font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
           Plan Alimentario Mediterraneo

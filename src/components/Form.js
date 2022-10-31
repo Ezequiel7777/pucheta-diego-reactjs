@@ -36,7 +36,8 @@ const Form = () => {
 
   return (
     <>
-      <div className="w-full max-w-xs">
+    <h1 className="text-center mt-40 text-lg font-semibold">Ingrese sus datos para Finalizar la reserva</h1>
+      <div className="w-full md:flex md:justify-center mb-6 mt-10">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -78,8 +79,7 @@ const Form = () => {
               placeholder="Email"
             />
           </div>
-        </form>
-        <Link to="checkout-order">
+          <Link to="checkout-order">
           <button
             type="submit"
             name="submit"
@@ -89,6 +89,8 @@ const Form = () => {
             Finalizar Compra
           </button>
         </Link>
+        </form>
+        
       </div>
     </>
   );
